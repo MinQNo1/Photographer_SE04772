@@ -1,10 +1,11 @@
 /**
  * ContactDAO.java
  * All Rights Reserved.
- * Copyright(c) by quyenvse04772
+ * Copyright(c) by QuyenNV
  */
 package dal;
 
+import context.DBContext;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

@@ -6,7 +6,7 @@
     </servlet>
     <servlet>
         <servlet-name>GalleryController</servlet-name>
-        <servlet-class>controller.GalleryController</servlet-class>
+        <servlet-class>controller.HomeController</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>PictureController</servlet-name>
@@ -37,7 +37,7 @@
             30
         </session-timeout>
     </session-config>
-<!--    <Context path="/Photographer_SE04772">
+    <!--    <Context path="/Photographer_SE04772">
         <Environment name="serverName" type="java.lang.String" value="localhost"/>
         <Environment name="dbName" type="java.lang.String" value="test"/>
         <Environment name="portNumber" type="java.lang.String" value="1433"/>

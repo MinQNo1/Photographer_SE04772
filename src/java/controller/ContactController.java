@@ -1,7 +1,7 @@
 /**
  * ContactController.java
  * All Rights Reserved.
- * Copyright(c) by quyenvse04772
+ * Copyright(c) by QuyenNV
  */
 package controller;
 

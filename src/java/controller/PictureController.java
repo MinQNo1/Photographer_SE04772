@@ -1,7 +1,7 @@
 /**
  * PictureController.java
  * All Rights Reserved.
- * Copyright(c) by quyennse04772
+ * Copyright(c) by QuyenNV
  */
 package controller;
 

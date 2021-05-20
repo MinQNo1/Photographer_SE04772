@@ -1,10 +1,11 @@
 /**
  * PictureDAO.java
  * All Rights Reserved.
- * Copyright(c) by quyenvse04772
+ * Copyright(c) by QuyenNV
  */
 package dal;
 
+import context.DBContext;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -48,7 +49,7 @@ public class PictureDAO {
         List<Picture> list = new ArrayList<>();
         try {
             String sql = "SELECT p.id,p.picture FROM Gallery g INNER JOIN Gallery_Picture gp ON g.id = gp.galleryId INNER JOIN Picture p ON gp.pictureId = p.id and g.id = ?";
-            //dung inner join
+            //open connecion
             conn = db.getConnection();
             ps = conn.prepareStatement(sql);
             ps.setInt(1, id);
@@ -62,6 +63,7 @@ public class PictureDAO {
         } catch (Exception ex) {
             Logger.getLogger(GalleryDAO.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
+            //close connection
             db.closeConnection(rs, ps, conn);
         }
         return list;

@@ -5,31 +5,12 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link href="css/style.css" rel="stylesheet" type="text/css"/>
+        <link href="css/app.css" rel="stylesheet" type="text/css"/>
         <title>Gallery</title>
     </head>
     <body>
         <div class="container">
-            <div class="header">
-                <div class="link">
-                    <a href="home">My front page</a>
-                    <c:forEach items="${galleries}" var="gallery">
-                        <a class="${gallery.id == gId?"fontBold":""}" rel="nofollow" href="picture?id=${gallery.id}">${gallery.name}</a>
-                    </c:forEach>
-<!--                    <a href="picture?id=1">Gallery 1</a>
-                    <a href="picture?id=2">Gallery 2</a>
-                    <a href="picture?id=3">Gallery 3</a>-->
-                    <a href="contact">Contact</a>
-                </div>
-                <div class="title">
-                    <a href="home"><div class="webTitle">
-                            <img src="image/logo.jpg">
-                            PHOTOGRAPHER
-                        </div>
-                    </a>
-                    <h2>Welcome to this website</h2>
-                </div>
-            </div>
+            <jsp:include page="header.jsp" />
             <div class="content">
                 <div class="left">
                     <div class="titleGallery">
@@ -39,7 +20,7 @@
                             </c:if>
                         </c:forEach>
                     </div>
-                    <div class="slide">
+                    <div class="gallery">
                         <c:forEach items="${pictures}" var="i">
                             <img class="mySlides" src="image/${i.name}" width="700px" height="500px" >
                         </c:forEach>

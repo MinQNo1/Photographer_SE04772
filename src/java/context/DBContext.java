@@ -1,9 +1,9 @@
 /**
  * DBContext.java
  * All Rights Reserved.
- * Copyright(c) by quyennvse04772
+ * Copyright(c) by QuyenNV
  */
-package dal;
+package context;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -48,7 +48,7 @@ public class DBContext {
      * @throws Exception
      */
     
-    private final String serverName = "DESKTOP-LG088B4\\SQLEXPRESS";
+    private final String serverName = "localhost";
     private final String dbName = "photographer";
     private final String portNumber = "1433";
     private final String username = "sa";
