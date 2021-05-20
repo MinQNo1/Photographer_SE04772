@@ -8,3 +8,15 @@ and open the template in the editor.
     Author     : QuyenNV
 */
 
+.titleContact{
+    color: white;
+    font-size: 30px;
+    margin-top: 50px;
+}
+
+.detailContact{
+    color: white;
+    font-size: 20px;
+    margin-top: 20px;
+    margin-bottom: 70px;
+}

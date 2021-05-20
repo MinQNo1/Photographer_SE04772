@@ -7,4 +7,25 @@ and open the template in the editor.
     Created on : May 20, 2021, 3:00:14 PM
     Author     : QuyenNV
 */
+.gallary img{
+    width: 100%;
+}
 
+.col-3 {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 20%;
+    flex: 0 0 20%;
+    max-width: 20%;
+    position: relative;
+}
+
+.gallery{
+    margin-right: 50px; 
+    float: left;
+    margin-bottom: 50px;
+}
+
+.viewGallery{
+    color: white;
+    font-size: 25px;
+}

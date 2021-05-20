@@ -5,8 +5,6 @@ body, html{
 }
 
 .content{
-    background: url("../image/bg.png");
-    background-color: #aa4043;
     padding-bottom: 130px;
     position: relative
 }
@@ -28,7 +26,7 @@ body, html{
 
 .title{
     height: 130px;
-    margin-left: 100px;
+    margin: 0 100px;
 }
 
 .title a{
@@ -66,11 +64,7 @@ body, html{
     margin-top: 30px;
 }
 
-.gallery{
-    margin-right: 50px; 
-    float: left;
-    margin-bottom: 50px;
-}
+
 
 .titleImg {
     margin-bottom: 20px;
@@ -82,25 +76,25 @@ body, html{
     font-size: 20px;
 }
 
-table tr td:not(:first-child):not(:last-child) {
+/*table tr td:not(:first-child):not(:last-child) {
     margin: 0 10px;
     padding-left: 20px;
     padding-right: 20px;
-}
+}*/
 
 table tr td img{
     position: relative;
     width: 100%;
 }
 
+table tr td{
+    
+}
+
 .titleImg img{
     width: 100%;
 }
 
-.viewGallery{
-    color: white;
-    font-size: 25px;
-}
 
 .description{
     color: white;
@@ -158,17 +152,6 @@ table tr td img{
     text-decoration: underline;
 }
 
-.footer{
-    background-color: black;
-    height: 100px;
-}
-
-.number{
-    color: white;
-    padding-left: 1100px;
-    padding-top: 40px;
-}
-
 .titleGallery{
     color: white;
     font-size: 30px;
@@ -181,6 +164,11 @@ table tr td img{
     margin-top: 30px;
     margin-right: 35px;
     margin-bottom: 50px;
+}
+
+.container-fluid.header-wrapper, .container-fluid.content-wrapper, .container-fluid.footer-wrapper, .container-fluid.site-wrapper {
+    padding-right: 0;
+    padding-left: 0;
 }
 
 .mySlides{
@@ -212,31 +200,8 @@ table tr td img{
 .imageItem{
     margin: 30px 10px 30px 10px;
 }
-
-.titleContact{
-    color: white;
-    font-size: 30px;
-    margin-left: 225px;
-    margin-top: 50px;
-}
-
-.detailContact{
-    color: white;
-    font-size: 20px;
-    margin-left: 225px;
-    margin-top: 20px;
-    margin-bottom: 70px;
-}
-
 .map{
     margin-left: 225px;
-}
-
-.err{
-    color: white;
-    margin-left: 200px;
-    margin-top: 100px;
-    font-size: 50px;
 }
 
 .return a{
@@ -249,4 +214,41 @@ table tr td img{
     background-color: background;
     font-size: 100px;
     font-weight: bold;
+}
+
+.container {
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%
+}
+
+.container-fluid {
+    padding-right: 0;
+    padding-left: 0;
+    
+}
+
+.content-wrapper{
+    background: 0 0;
+}
+
+.content-wrapper {
+    color: #fff;
+    background-color: #aa4043;
+    margin-top: 0;
+}
+
+body {
+    background: url("../image/bg.png");
+    margin: 0;
+    font-family: 'Open Sans',Helvetica,Arial,sans-serif;
+    font-size: 16px;
+    line-height: 22px;
+    color: #fff;
+    position: relative;
+    background-color: #aa4043;
+    background-repeat: repeat repeat;
+    background-position: 0 0;
+    background-attachment: scroll;
+    background-size: auto;
 }

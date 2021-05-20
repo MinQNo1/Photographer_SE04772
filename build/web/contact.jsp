@@ -6,6 +6,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link href="css/app.css" rel="stylesheet" type="text/css"/>
+        <link href="css/contact.css" rel="stylesheet" type="text/css"/>
         <title>Contact</title>
     </head>
     <body>
@@ -13,7 +14,7 @@
             <jsp:include page="header.jsp" />
             <div class="content">
                 <div class="left">
-                    <div class="contact">
+                    <div class="">
                         <div class="titleContact">
                             <p>Contact</p><br>
                             PHOTOGRAPHER<br>
@@ -26,25 +27,11 @@
                             Email: ${contact.email}<br>
                         </div>
                     </div>
-                    <div class="map">
+                    <div class="">
                         <img src="image/map.jpg" width="700px" height="500px">
                     </div>
                 </div>
-                <div class="right">
-                    <div class="share">
-                        <div class="sharePage">Share this page</div>
-                        <a class="social" href="#">
-                            <div class="fb">
-                                Share on Facebook
-                            </div>
-                        </a>
-                        <a class="social" href="#">
-                            <div class="twitter">
-                                Share on Twitter
-                            </div>
-                        </a>
-                    </div>
-                </div>
+                <jsp:include page="right.jsp" />
             </div>
             <div class="footer">
                 <div class="number">0  9  5  7  9  6</div>
