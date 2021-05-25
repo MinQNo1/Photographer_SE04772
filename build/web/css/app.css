@@ -1,6 +1,5 @@
 body, html{
     background-color: #722f31;
-    height: 100%;
     margin: 0;
 }
 
@@ -12,13 +11,11 @@ body, html{
 .link{
     background-color: black;
     height: 40px;
-    padding-left: 100px;
     padding-top: 16px;
 }
 
 .link a{
     color: white;
-    padding-left: 15px; 
     text-decoration: none;
     font-size: 20px;
     border-left: 1px white solid;
@@ -36,10 +33,11 @@ body, html{
 .title h2{
     color: white;
     margin-top: auto;
+    font-size: 22px
 }
 
 .webTitle{
-    font-size: 55px;
+    font-size: 47px;
     color: white;
 }
 
@@ -48,8 +46,6 @@ body, html{
 }
 
 .left{
-    margin-left: 100px;
-    width: 70%;
     display: flex!important;
     -webkit-box-orient: horizontal!important;
     -webkit-box-direction: normal!important;    
@@ -219,7 +215,7 @@ table tr td{
 .container {
     margin-left: auto;
     margin-right: auto;
-    width: 70%
+    width: 940px;
 }
 
 .container-fluid {
@@ -234,7 +230,7 @@ table tr td{
 
 .content-wrapper {
     color: #fff;
-    background-color: #aa4043;
+    /*background-color: #aa4043;*/
     margin-top: 0;
 }
 
