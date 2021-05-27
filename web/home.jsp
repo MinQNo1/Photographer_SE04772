@@ -17,13 +17,13 @@
                     <div class="left">
                         <div class="gallery">
                             <div class="titleImg">
-                                <img src="image/i4.jpg">
+                                <img src="images/i4.jpg">
                                 <i><p>Lorem ipsum dolor sit amet</p></i>
                             </div>
                             <table>
                                 <tr>
                                     <c:forEach items="${galleries}" var="i">
-                                        <td><img src="image/${i.feturedPicture}"></td>
+                                        <td><img src="${imagePath}${i.feturedPicture}"></td>
                                         </c:forEach> 
                                 </tr>
                                 <tr>

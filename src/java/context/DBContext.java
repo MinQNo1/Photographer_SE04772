@@ -10,6 +10,11 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
 
 /**
  * DBContext.<br>
@@ -48,11 +53,35 @@ public class DBContext {
      * @throws Exception
      */
     
-    private final String serverName = "localhost";
-    private final String dbName = "photographer";
-    private final String portNumber = "1433";
-    private final String username = "sa";
-    private final String password = "123456";
+    private String serverName;
+    private String dbName;
+    private String portNumber;
+    private String username;
+    private String password;
+    public String image;
+    
+    InitialContext initial;
+    Context context;
+
+    public DBContext() {
+        try {
+            initial = new InitialContext();
+            Object obj = initial.lookup("java:comp/env");
+            context = (Context) obj;
+            serverName = context.lookup("serverName").toString();
+            dbName = context.lookup("dbName").toString();
+            portNumber = context.lookup("portNumber").toString();
+            username = context.lookup("username").toString();
+            password = context.lookup("password").toString();
+            image = context.lookup("images").toString();
+        } catch (NamingException ex){
+            Logger.getLogger(DBContext.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public String getImagePath(){
+        return image;
+    }
     
     public Connection getConnection() throws Exception {
         String url = "jdbc:sqlserver://" + serverName + ":" + portNumber + ";databaseName=" + dbName;

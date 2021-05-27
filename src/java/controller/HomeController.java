@@ -5,8 +5,10 @@
  */
 package controller;
 
+import context.DBContext;
 import dal.ContactDAO;
 import dal.GalleryDAO;
+import dal.SettingDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
@@ -20,6 +22,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.Contact;
 import model.Gallery;
+import model.Setting;
 
 /**
  * HomeController<br>
@@ -70,8 +73,13 @@ public class HomeController extends HttpServlet {
         try {
             GalleryDAO dao = new GalleryDAO();
             ContactDAO cDao = new ContactDAO();
+            SettingDAO settingDAO = new SettingDAO();
+            DBContext context = new DBContext();
             List<Gallery> galleries = dao.getGalleries();
             Contact c = cDao.getContact();
+            Setting setting = settingDAO.getWebSetting();
+            request.setAttribute("imagePath", context.getImagePath());
+            request.setAttribute("setting", setting);
             request.setAttribute("galleries", galleries);
             request.setAttribute("contact", c);
             request.getRequestDispatcher("home.jsp").forward(request, response);

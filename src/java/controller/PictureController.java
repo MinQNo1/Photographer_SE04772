@@ -5,8 +5,10 @@
  */
 package controller;
 
+import context.DBContext;
 import dal.GalleryDAO;
 import dal.PictureDAO;
+import dal.SettingDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
@@ -20,6 +22,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.Gallery;
 import model.Picture;
+import model.Setting;
 
 /**
  * PictureController<br>
@@ -67,10 +70,15 @@ public class PictureController extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try {
+            DBContext context = new DBContext();
             GalleryDAO gDao = new GalleryDAO();
             PictureDAO dao = new PictureDAO();
+            SettingDAO settingDAO = new SettingDAO();
             int id = Integer.parseInt(request.getParameter("id"));
             request.setAttribute("gId", id);
+            Setting setting = settingDAO.getWebSetting();
+            request.setAttribute("setting", setting);
+            request.setAttribute("imagePath", context.getImagePath());
             List<Gallery> galleries = gDao.getGalleries();
             List<Picture> pictures = dao.getPicturesById(id);
             request.setAttribute("galleries", galleries);

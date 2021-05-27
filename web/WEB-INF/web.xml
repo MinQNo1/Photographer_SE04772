@@ -37,12 +37,28 @@
             30
         </session-timeout>
     </session-config>
-    <!--    <Context path="/Photographer_SE04772">
-        <Environment name="serverName" type="java.lang.String" value="localhost"/>
-        <Environment name="dbName" type="java.lang.String" value="test"/>
-        <Environment name="portNumber" type="java.lang.String" value="1433"/>
-        <Environment name="username" type="java.lang.String" value="sa"/>
-        <Environment name="password" type="java.lang.String" value="123456"/>
-        <Environment name="image" type="java.lang.String" value="images/"/>
-    </Context>-->
+    <context-param>
+        <param-name>serverName</param-name>
+        <param-value>localhost</param-value>
+    </context-param>
+    <context-param>
+        <param-name>serverPort</param-name>
+        <param-value>1433</param-value>
+    </context-param>
+    <context-param>
+        <param-name>dbName</param-name>
+        <param-value>photographer</param-value>
+    </context-param>
+    <context-param>
+        <param-name>username</param-name>
+        <param-value>root</param-value>
+    </context-param>
+    <context-param>
+        <param-name>password</param-name>
+        <param-value>root</param-value>
+    </context-param>
+    <context-param>
+        <param-name>image</param-name>
+        <param-value>images\</param-value>
+    </context-param>
 </web-app>

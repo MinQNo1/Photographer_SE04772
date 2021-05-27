@@ -10,8 +10,8 @@
         <title>Contact</title>
     </head>
     <body>
+        <jsp:include page="header.jsp" />
         <div class="container">
-            <jsp:include page="header.jsp" />
             <div class="content">
                 <div class="left">
                     <div class="">
@@ -28,7 +28,7 @@
                         </div>
                     </div>
                     <div class="">
-                        <img src="image/map.jpg" width="700px" height="500px">
+                        <img src="images/map.jpg" width="700px" height="500px">
                     </div>
                 </div>
                 <jsp:include page="right.jsp" />

@@ -11,10 +11,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-        <link href="css/app.css" rel="stylesheet" type="text/css"/>
-        <link href="css/header.css" rel="stylesheet" type="text/css"/>
-
+        <title>Header</title>
     </head>
     <body>
         <div class="header">
@@ -27,16 +24,21 @@
                     <a href="contact">Contact</a>
                 </div>
             </div>
-            <div class="title">
-                <div class="container">
-                    <a href="home"><div class="webTitle">
-                            <img src="image/logo.jpg">
-                            PHOTOGRAPHER
-                        </div>
-                    </a>
-                    <h2>Welcome to Gallery website</h2>
+            <div class="title-wrapper">
+                <div class="title-inner">
+                    <a class="logo" href="http://us-123photo.simplesite.com/">
+                        <img src="${imagePath}${setting.src}"></a>
+                    <div class="title ">
+                        <a class="title title-link" href="http://us-123photo.simplesite.com/">
+                            ${setting.title}
+                        </a> 
+                    </div>
+                    <!--</div>-->
+                    <div class="subtitle">
+                        ${setting.subTitle}
+                    </div>
                 </div>
             </div>
-        </div>    
+        </div>
     </body>
 </html>

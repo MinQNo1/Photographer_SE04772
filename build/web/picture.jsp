@@ -9,8 +9,8 @@
         <title>Gallery</title>
     </head>
     <body>
+        <jsp:include page="header.jsp" />
         <div class="container">
-            <jsp:include page="header.jsp" />
             <div class="content">
                 <div class="left">
                     <div class="titleGallery">
@@ -34,6 +34,8 @@
                             <img class="imageItem" src="image/${i.name}" >
                         </div>
                     </c:forEach>
+
+
                 </div>
                 <jsp:include page="right.jsp" />
             </div>

@@ -8,34 +8,6 @@ body, html{
     position: relative
 }
 
-.link{
-    background-color: black;
-    height: 40px;
-    padding-top: 16px;
-}
-
-.link a{
-    color: white;
-    text-decoration: none;
-    font-size: 20px;
-    border-left: 1px white solid;
-}
-
-.title{
-    height: 130px;
-    margin: 0 100px;
-}
-
-.title a{
-    text-decoration: none;
-}
-
-.title h2{
-    color: white;
-    margin-top: auto;
-    font-size: 22px
-}
-
 .webTitle{
     font-size: 47px;
     color: white;
@@ -107,28 +79,6 @@ table tr td{
 .aboutText{
     color: white;
     font-size: 20px;
-}
-
-.right{
-    width: 30%;
-}
-
-.share{
-    width: 225px;
-    height: auto;
-    background-color: #722f31;
-}
-
-.share div:not(:first-child) {
-    margin: 10px;
-    font-size: 18px;
-}
-
-.sharePage{
-    color: white;
-    padding: 10px;
-    font-size: 20px;
-    background-color: black;
 }
 
 .social{
@@ -235,7 +185,7 @@ table tr td{
 }
 
 body {
-    background: url("../image/bg.png");
+    background: url("../images/bg.png");
     margin: 0;
     font-family: 'Open Sans',Helvetica,Arial,sans-serif;
     font-size: 16px;
@@ -247,4 +197,78 @@ body {
     background-position: 0 0;
     background-attachment: scroll;
     background-size: auto;
+}
+
+/*Css for Header*/
+
+.header{
+    background-color: #722f31;
+}
+.link {
+    background-color: #303030;
+}
+
+.link a{
+    color: white;
+    text-decoration: none;
+    /*padding: 0 15px;*/
+    line-height: 40px;
+    border-left: 1px white solid;
+    display: inline-block;
+    padding: 0 15px;
+}
+
+.logo{ 
+    font-family: SimpleSite;
+    font-weight: 400;
+    font-style: normal;
+    text-decoration: inherit;
+    -webkit-font-smoothing: antialiased;
+    display: inline-block;
+    float: left;
+    color: #fff;
+    text-shadow: none;
+    font-size: 76.5px;
+    line-height: 85px;
+    padding-top: 4px;
+    padding-bottom: 2px;
+    vertical-align: top;
+    margin: 0 16px 0 0;
+}
+
+.title-wrapper {
+    padding: 15px 0 30px;
+}
+
+.title-inner .title {
+    color: #fff;
+    text-shadow: none;
+    font-family: 'Times New Roman',Helvetica,Arial,sans-serif;
+    font-size: 47px;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 47px;
+    letter-spacing: 0;
+    padding: 10px 0;
+    margin-left: 93.5px;
+    text-transform: none;
+}
+
+.title-inner {
+    width: 940px;
+    margin: 0 auto;
+}
+
+.subtitle {
+    color: #fff;
+    text-shadow: none;
+    text-transform: none;
+    font-family: 'Times New Roman',Helvetica,Arial,sans-serif;
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 22px;
+    letter-spacing: 0;
+    padding: 2px 0;
+    margin-left: 93.5px;
+    font-style: normal;
 }

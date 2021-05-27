@@ -5,8 +5,10 @@
  */
 package controller;
 
+import context.DBContext;
 import dal.ContactDAO;
 import dal.GalleryDAO;
+import dal.SettingDAO;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
@@ -19,6 +21,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.Contact;
 import model.Gallery;
+import model.Setting;
 
 /**
  * ContactController<br>
@@ -66,10 +69,15 @@ public class ContactController extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try {
+            DBContext context = new DBContext();
             GalleryDAO gDao = new GalleryDAO();
             ContactDAO dao = new ContactDAO();
+            SettingDAO settingDAO = new SettingDAO();
             Contact c = dao.getContact();
             List<Gallery> galleries = gDao.getGalleries();
+            Setting setting = settingDAO.getWebSetting();
+            request.setAttribute("imagePath", context.getImagePath());
+            request.setAttribute("setting", setting);
             request.setAttribute("galleries", galleries);
             request.setAttribute("contact", c);
             request.setAttribute("fontBold", "fontBold");
