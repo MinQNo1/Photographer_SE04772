@@ -18,11 +18,15 @@ public class Setting {
     private String title;
     
     private String subTitle;
+    
+    private String titleImage;
+    
+    private String titleText;
 
     public Setting() {
     }
 
-    public Setting(String src, String desc, String title, String subTitle) {
+    public Setting(String src, String desc, String title, String subTitle, String titleImage, String titleText) {
         this.src = src;
         this.desc = desc;
         this.title = title;
@@ -61,6 +65,20 @@ public class Setting {
     public void setSubTitle(String subTitle) {
         this.subTitle = subTitle;
     }
-    
-    
+
+    public String getTitleImage() {
+        return titleImage;
+    }
+
+    public void setTitleImage(String titleImage) {
+        this.titleImage = titleImage;
+    }
+
+    public String getTitleText() {
+        return titleText;
+    }
+
+    public void setTitleText(String titleText) {
+        this.titleText = titleText;
+    }
 }

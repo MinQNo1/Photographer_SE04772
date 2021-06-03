@@ -83,7 +83,7 @@ public class DBContext {
         return image;
     }
     
-    public Connection getConnection() throws Exception {
+    public Connection getConnection() throws ClassNotFoundException, SQLException {
         String url = "jdbc:sqlserver://" + serverName + ":" + portNumber + ";databaseName=" + dbName;
         Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
         return DriverManager.getConnection(url, username, password);

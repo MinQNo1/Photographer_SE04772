@@ -64,9 +64,10 @@ public class ContactController extends HttpServlet {
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
+     * @throws java.sql.SQLException
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+            throws ServletException, Exception {
         response.setContentType("text/html;charset=UTF-8");
         try {
             DBContext context = new DBContext();
@@ -80,12 +81,11 @@ public class ContactController extends HttpServlet {
             request.setAttribute("setting", setting);
             request.setAttribute("galleries", galleries);
             request.setAttribute("contact", c);
-            request.setAttribute("fontBold", "fontBold");
             request.getRequestDispatcher("contact.jsp").forward(request, response);
-        } catch (IOException | SQLException | ServletException ex) {
+        } catch (Exception ex) {
             request.setAttribute("error", ex.getMessage());
             request.getRequestDispatcher("error.jsp").forward(request, response);
-            Logger.getLogger(PictureController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ContactController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -100,8 +100,12 @@ public class ContactController extends HttpServlet {
      */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        processRequest(request, response);
+            throws ServletException {
+        try {
+            processRequest(request, response);
+        } catch (Exception ex) {
+            Logger.getLogger(ContactController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -114,8 +118,12 @@ public class ContactController extends HttpServlet {
      */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        processRequest(request, response);
+            throws ServletException {
+        try {
+            processRequest(request, response);
+        } catch (Exception ex) {
+            Logger.getLogger(ContactController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**

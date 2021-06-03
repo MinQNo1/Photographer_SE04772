@@ -14,19 +14,23 @@ and open the template in the editor.
 
 .share{
     width: 225px;
-    height: 155px;
-    background-color: #722f31;
+    height: 150px;
+    background-color: #893b3d;
 }
 
 .share div:not(:first-child) {
     margin: 10px;
-    font-size: 18px;
+    font-size: 16px;
 }
 
 .sharePage{
     color: white;
     padding: 10px;
     font-size: 20px;
-    background-color: black;
+    background-color: #303030;
+}
+
+.fb, .twitter, google {
+    color: inherit;
 }
 

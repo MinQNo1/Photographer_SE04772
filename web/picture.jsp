@@ -6,6 +6,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link href="css/app.css" rel="stylesheet" type="text/css"/>
+        <link href="css/picture.css" rel="stylesheet" type="text/css"/>
         <title>Gallery</title>
     </head>
     <body>
@@ -20,29 +21,45 @@
                             </c:if>
                         </c:forEach>
                     </div>
-                    <div class="gallery">
+                    <div class="slide">
                         <c:forEach items="${pictures}" var="i">
-                            <img class="mySlides" src="image/${i.name}">
+                            <img class="mySlides" src="${imagePath}${i.name}">
                         </c:forEach>
                         <div class="control">
                             <button class="btnLeft" onclick="plusDivs(-1)"><</button>
                             <button class="btnRight" onclick="plusDivs(1)">></button>
                         </div>
                     </div>
-                    <c:forEach items="${pictures}" var="i">
-                        <div class="col-3">
-                            <img class="imageItem" src="image/${i.name}" >
-                        </div>
-                    </c:forEach>
-
-
+                    <table>
+                        <tr>
+                            <c:forEach items="${pictures}" var="i">
+                                <c:if test="${i.id <= 4}">
+                                    <td>
+                                        <div class="bgPicture">
+                                            <img class="imageItem" src="${imagePath}${i.name}" width="150px" height="130px" >
+                                        </div>
+                                    </td>
+                                </c:if>
+                            </c:forEach>
+                        </tr>
+                        <tr>
+                            <c:forEach items="${pictures}" var="i">
+                                <c:if test="${i.id > 4}">
+                                    <td>
+                                        <div class="bgPicture">
+                                            <img class="imageItem" src="${imagePath}${i.name}" width="150px" height="130px" >
+                                        </div>
+                                    </td>
+                                </c:if>
+                            </c:forEach>
+                        </tr>
+                    </table>
                 </div>
                 <jsp:include page="right.jsp" />
             </div>
-            <div class="footer">
-                <div class="number">0  9  5  7  9  6</div>
-            </div>
+
         </div>
+        <jsp:include page="footer.jsp" />
     </body>
     <script>
         var slideIndex = 1;

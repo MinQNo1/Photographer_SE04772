@@ -11,3 +11,13 @@ and open the template in the editor.
 table a {
     text-decoration: white;
 }
+
+.viewGallery {
+    text-decoration: underline;
+    font-size: 22px;
+}
+
+.description {
+    font-family: 'Open Sans',Helvetica,Arial,sans-serif;
+    font-size: 16px;
+}

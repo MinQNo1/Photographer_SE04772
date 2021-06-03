@@ -17,30 +17,32 @@
                     <div class="left">
                         <div class="gallery">
                             <div class="titleImg">
-                                <img src="images/i4.jpg">
-                                <i><p>Lorem ipsum dolor sit amet</p></i>
+                                <img src="${imagePath}${setting.titleImage}">
+                                <i class="imageCaption"><p class="sub3">${setting.titleText}</p></i>
                             </div>
                             <table>
                                 <tr>
                                     <c:forEach items="${galleries}" var="i">
-                                        <td><img src="${imagePath}${i.feturedPicture}"></td>
-                                        </c:forEach> 
-                                </tr>
-                                <tr>
-                                    <c:forEach items="${galleries}" var="i">
-                                        <td><a class="viewGallery" href="picture?id=${i.id}">View ${i.name}</a></td>
+                                        <td><a><img src="${imagePath}${i.feturedPicture}"><a></td>
                                     </c:forEach> 
                                 </tr>
                                 <tr>
                                     <c:forEach items="${galleries}" var="i">
-                                        <td><div class="description">${i.description}</div></td>
-                                        </c:forEach> 
+                                        <td><h4><a class="viewGallery" href="picture?id=${i.id}">View ${i.name}</a></h4></td>
+                                    </c:forEach> 
+                                </tr>
+                                <tr>
+                                    <c:forEach items="${galleries}" var="i">
+                                        <td><div class="description"><p>${i.description}</p></div></td>
+                                    </c:forEach> 
                                 </tr>
                             </table>
                         </div>
                         <div class="about">
-                            <div class="about_me">About me</div>
-                            <div class="aboutText">${contact.about_me}</div>
+                            <div class="about_me"><h3>About me</h3></div>
+                            <div class="content">
+                                <div class="aboutText">${contact.about_me}</div>
+                            </div>
                         </div>
                     </div>
                     <jsp:include page="right.jsp" />

@@ -30,14 +30,15 @@ import model.Contact;
  * @version 1.0
  */
 public class ContactDAO {
-     /**
+
+    /**
      * getContact.<br>
      * Get all the properties of contact in database
      *
      * @return a Contact
      * @throws java.sql.SQLException
      */
-    public Contact getContact() throws SQLException {
+    public Contact getContact() throws Exception {
         DBContext db = new DBContext();
         Connection conn = null;
         PreparedStatement ps = null;
@@ -45,8 +46,10 @@ public class ContactDAO {
         Contact c = new Contact();
         try {
             String sql = "SELECT * FROM [Contact] WHERE id = (select MAX(id) from Contact)";
+            //open connection
             conn = db.getConnection();
             ps = conn.prepareStatement(sql);
+            // get result set
             rs = ps.executeQuery();
             while (rs.next()) {
                 c.setId(rs.getInt("id"));
@@ -59,7 +62,9 @@ public class ContactDAO {
             }
         } catch (Exception ex) {
             Logger.getLogger(ContactDAO.class.getName()).log(Level.SEVERE, null, ex);
+            throw ex;
         } finally {
+            //close connection
             db.closeConnection(rs, ps, conn);
         }
         return c;

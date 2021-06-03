@@ -22,11 +22,9 @@
                 <div class="twitter">
                     <a class="text-white" href="#">Share on Twitter</a>
                 </div>
-                </a>
                 <div class="google">
                     <a class="text-white" href="#">Share on Google+</a>
                 </div>
-                </a>
             </div>
         </div>
     </body>

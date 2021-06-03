@@ -13,3 +13,7 @@ and open the template in the editor.
     margin-top: 100px;
     font-size: 50px;
 }
+
+.error{
+    min-height: 685px !important;
+}

@@ -26,10 +26,10 @@
             </div>
             <div class="title-wrapper">
                 <div class="title-inner">
-                    <a class="logo" href="http://us-123photo.simplesite.com/">
+                    <a class="logo" href="#">
                         <img src="${imagePath}${setting.src}"></a>
                     <div class="title ">
-                        <a class="title title-link" href="http://us-123photo.simplesite.com/">
+                        <a class="title title-link" href="#">
                             ${setting.title}
                         </a> 
                     </div>

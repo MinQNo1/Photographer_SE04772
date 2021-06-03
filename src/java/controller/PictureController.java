@@ -60,11 +60,13 @@ public class PictureController extends HttpServlet {
      *
      * handing exception:
      *      redirect to error jsp
-     *</pre>
+     * </pre>
+     *
      * @param request servlet request
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
+     * @throws java.sql.SQLException
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -82,10 +84,14 @@ public class PictureController extends HttpServlet {
             List<Gallery> galleries = gDao.getGalleries();
             List<Picture> pictures = dao.getPicturesById(id);
             request.setAttribute("galleries", galleries);
-            request.setAttribute("pictures", pictures);
-            request.setAttribute("fontBold", "fontBold");
-            request.getRequestDispatcher("picture.jsp").forward(request, response);
-        } catch (IOException | NumberFormatException | SQLException | ServletException ex) {
+            if (pictures.isEmpty()) {
+                request.setAttribute("error", "Gallary not found.");
+                request.getRequestDispatcher("error.jsp").forward(request, response);
+            } else {
+                request.setAttribute("pictures", pictures);
+                request.getRequestDispatcher("picture.jsp").forward(request, response);
+            }
+        } catch (Exception ex) {
             request.setAttribute("error", ex.getMessage());
             request.getRequestDispatcher("error.jsp").forward(request, response);
             Logger.getLogger(PictureController.class.getName()).log(Level.SEVERE, null, ex);
@@ -103,8 +109,12 @@ public class PictureController extends HttpServlet {
      */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        processRequest(request, response);
+            throws ServletException {
+        try {
+            processRequest(request, response);
+        } catch (Exception ex) {
+            Logger.getLogger(PictureController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -117,8 +127,12 @@ public class PictureController extends HttpServlet {
      */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        processRequest(request, response);
+            throws ServletException {
+        try {
+            processRequest(request, response);
+        } catch (Exception ex) {
+            Logger.getLogger(PictureController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**

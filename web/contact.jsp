@@ -33,9 +33,7 @@
                 </div>
                 <jsp:include page="right.jsp" />
             </div>
-            <div class="footer">
-                <div class="number">0  9  5  7  9  6</div>
-            </div>
         </div>
+        <jsp:include page="footer.jsp" />
     </body>
 </html>

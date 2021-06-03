@@ -25,7 +25,31 @@ and open the template in the editor.
     margin-bottom: 50px;
 }
 
+
+.titleGallery{
+    color: white;
+    font-size: 30px;
+}
+
 .viewGallery{
     color: white;
     font-size: 25px;
+}
+
+.mySlides {
+    width: 750px;
+    height: 500px;
+    overflow: hidden;
+}
+
+
+.slide{
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+
+.bgPicture .imageItem {
+    width: 150px;
+    height: 130px;
+    overflow: hidden;
 }

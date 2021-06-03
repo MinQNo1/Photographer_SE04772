@@ -15,7 +15,22 @@
     </head>
     <body>
         <div class="footer">
-            <span>0  9  5  7  9  6</span>
+            <div class="container">
+                <div class="footer-page-counter">
+                    <span class="footer-page-counter-item">1</span>
+
+                    <span class="footer-page-counter-item">0</span>
+
+                    <span class="footer-page-counter-item">8</span>
+
+                    <span class="footer-page-counter-item">0</span>
+
+                    <span class="footer-page-counter-item">4</span>
+
+                    <span class="footer-page-counter-item">8</span>
+                </div>
+                <div id="css_simplesite_com_fallback" class="hide"></div>
+            </div>
         </div>
     </body>
 </html>

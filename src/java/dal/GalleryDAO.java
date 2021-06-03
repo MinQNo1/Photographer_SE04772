@@ -35,14 +35,14 @@ public class GalleryDAO {
 
     /**
      * getGalleries.<br>
-     * 
+     *
      * Get all the properties of each Gallery in database
-     * 
+     *
      *
      * @return a list of Gallery
      * @throws java.sql.SQLException
      */
-    public List<Gallery> getGalleries() throws SQLException {
+    public List<Gallery> getGalleries() throws Exception {
         DBContext db = new DBContext();
         Connection conn = null;
         PreparedStatement ps = null;
@@ -50,8 +50,10 @@ public class GalleryDAO {
         List<Gallery> list = new ArrayList<>();
         try {
             String sql = "SELECT * FROM [photographer].[dbo].[Gallery]";
+            //open connection
             conn = db.getConnection();
             ps = conn.prepareStatement(sql);
+            // get result set
             rs = ps.executeQuery();
             while (rs.next()) {
                 Gallery g = new Gallery();
@@ -64,6 +66,7 @@ public class GalleryDAO {
         } catch (Exception ex) {
             Logger.getLogger(GalleryDAO.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
+            // close connection
             db.closeConnection(rs, ps, conn);
         }
         return list;

@@ -9,7 +9,6 @@ import context.DBContext;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -41,7 +40,7 @@ public class PictureDAO {
      * @return a list of Gallery
      * @throws java.sql.SQLException
      */
-    public List<Picture> getPicturesById(int id) throws SQLException {
+    public List<Picture> getPicturesById(int id) throws Exception {
         DBContext db = new DBContext();
         Connection conn = null;
         PreparedStatement ps = null;
@@ -53,6 +52,7 @@ public class PictureDAO {
             conn = db.getConnection();
             ps = conn.prepareStatement(sql);
             ps.setInt(1, id);
+            // get result set
             rs = ps.executeQuery();
             while (rs.next()) {
                 Picture p = new Picture();
@@ -60,8 +60,9 @@ public class PictureDAO {
                 p.setName(rs.getString("picture"));
                 list.add(p);
             }
-        } catch (Exception ex) {
-            Logger.getLogger(GalleryDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }catch(Exception ex){
+            Logger.getLogger(PictureDAO.class.getName()).log(Level.SEVERE, null, ex);
+            throw ex;
         } finally {
             //close connection
             db.closeConnection(rs, ps, conn);

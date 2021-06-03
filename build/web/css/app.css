@@ -3,8 +3,16 @@ body, html{
     margin: 0;
 }
 
+h1, h2, h3, h4, h5, h6 {
+    text-shadow: none;
+    font-family: 'Times New Roman',Helvetica,Arial,sans-serif;
+    font-weight: 400;
+    margin: 11px 0;
+    color: inherit;
+}
+
 .content{
-    padding-bottom: 130px;
+    padding-bottom: 20px;
     position: relative
 }
 
@@ -38,11 +46,11 @@ body, html{
     margin-bottom: 20px;
 }
 
-.titleImg p{
+/*.titleImg p{
     color: white;
     margin-top: 5px;
     font-size: 20px;
-}
+}*/
 
 /*table tr td:not(:first-child):not(:last-child) {
     margin: 0 10px;
@@ -52,34 +60,55 @@ body, html{
 
 table tr td img{
     position: relative;
-    width: 100%;
+    width: 95%;
 }
 
-table tr td{
-    
+table tr td:first-child{
+    padding-right: 8px;
+}
+
+table tr td:last-child{
+    padding-left: 8px;
+}
+
+table tr td:not(:first-child):not(:last-child){
+    padding: 8px;
 }
 
 .titleImg img{
     width: 100%;
 }
 
+.imageCaption p {
+    font-style: italic;
+    padding: 6px 1px !important;
+    margin: 0 !important;
+}
 
-.description{
+
+.description, aboutText{
     color: white;
-    font-size: 20px;
+    font-size: 16px;
 }
 
 
 .about_me{
     color: white;
-    font-size: 30px;
-    margin-bottom: 20px;
+    font-family: 'Times New Roman',Helvetica,Arial,sans-serif;
+    margin: 0;
 }
- 
-.aboutText{
-    color: white;
-    font-size: 20px;
+
+.about_me h3{
+    font-size: 28px !important;
 }
+
+.content > .aboutText{
+    padding-top: 11px;
+    padding-bottom: 22px;
+    margin: 0;
+}
+
+
 
 .social{
     text-decoration: white;
@@ -96,20 +125,6 @@ table tr td{
 .text-white{
     color: white !important;
     text-decoration: underline;
-}
-
-.titleGallery{
-    color: white;
-    font-size: 30px;
-    padding-left: 185px;
-    padding-top: 50px;
-}
-
-.slide{
-    margin-left: 185px;
-    margin-top: 30px;
-    margin-right: 35px;
-    margin-bottom: 50px;
 }
 
 .container-fluid.header-wrapper, .container-fluid.content-wrapper, .container-fluid.footer-wrapper, .container-fluid.site-wrapper {
@@ -171,7 +186,7 @@ table tr td{
 .container-fluid {
     padding-right: 0;
     padding-left: 0;
-    
+
 }
 
 .content-wrapper{
@@ -271,4 +286,96 @@ body {
     padding: 2px 0;
     margin-left: 93.5px;
     font-style: normal;
+}
+
+.title-wrapper .title {
+    color: #fff;
+    text-shadow: none;
+    font-family: 'Times New Roman',Helvetica,Arial,sans-serif;
+    font-size: 47px;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 47px;
+    letter-spacing: 0;
+    padding: 6px 0;
+    margin-left: 93.5px;
+    text-transform: none;
+    text-decoration: none;
+}
+
+.sub3{
+    font-style: italic;
+    font-family: 'Open Sans',Helvetica,Arial,sans-serif;
+    font-size: 14.4px;
+    line-height: 17.82px;
+}
+
+h4{
+    font-family: 'Times New Roman',Helvetica,Arial,sans-serif;
+    font-size: 20px;
+    line-height: 22px;
+    text-shadow: none;
+    font-weight: 400;
+    margin: 0;
+    color: inherit;
+}
+
+h4 > a{
+    color: #fff !important;
+    text-decoration: none;
+}
+
+.footer .footer-page-counter .footer-page-counter-item {
+    border: solid 0 #fff;
+    background: #fff;
+    font-size: 14.4px;
+    font-family: Arial,Helvetica,Arial,sans-serif;
+    line-height: 14.4px;
+    padding: 2px 2px 1px;
+    margin: 3px 2px 0 0;
+    border-radius: 4px;
+    box-shadow: 0 1px 2px #595959;
+    float: left;
+    text-align: center;
+    color: #000;
+    font-weight: 700;
+    width: 10px;
+    position: relative;
+}
+
+.footer>.container {
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+.footer>.container {
+    padding-top: 22px;
+    padding-bottom: 22px;
+}
+
+.footer {
+    background-color: #303030;
+    height: 80px
+}
+
+.footer .footer-page-counter {
+    float: right;
+    margin: 0 0 16px;
+    *zoom: 1;
+}
+
+.footer .footer-page-counter:before, .footer-wrapper .footer-page-counter:after {
+    display: table;
+    content: "";
+    line-height: 0;
+}
+
+.footer .footer-page-counter:after {
+    clear: both;
+}
+
+.footer .footer-page-counter:before, .footer-wrapper .footer-page-counter:after {
+    display: table;
+    content: "";
+    line-height: 0;
 }
