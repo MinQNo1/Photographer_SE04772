@@ -61,6 +61,7 @@ public class PictureDAO {
                 list.add(p);
             }
         }catch(Exception ex){
+            // throw exception
             Logger.getLogger(PictureDAO.class.getName()).log(Level.SEVERE, null, ex);
             throw ex;
         } finally {

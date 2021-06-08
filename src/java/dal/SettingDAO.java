@@ -42,6 +42,7 @@ public class SettingDAO {
                 setting.setTitleText(rs.getString("title_text"));
             }
         }catch(Exception ex){
+            // throw exception
             Logger.getLogger(SettingDAO.class.getName()).log(Level.SEVERE, null, ex);
             throw ex;
         } finally {

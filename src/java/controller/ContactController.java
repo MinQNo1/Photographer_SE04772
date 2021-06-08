@@ -81,6 +81,7 @@ public class ContactController extends HttpServlet {
             request.setAttribute("setting", setting);
             request.setAttribute("galleries", galleries);
             request.setAttribute("contact", c);
+            request.setAttribute("map", context.map);
             request.getRequestDispatcher("contact.jsp").forward(request, response);
         } catch (Exception ex) {
             request.setAttribute("error", ex.getMessage());

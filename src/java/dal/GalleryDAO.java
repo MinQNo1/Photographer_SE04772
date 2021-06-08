@@ -64,7 +64,9 @@ public class GalleryDAO {
                 list.add(g);
             }
         } catch (Exception ex) {
+            // throw exception
             Logger.getLogger(GalleryDAO.class.getName()).log(Level.SEVERE, null, ex);
+            throw ex;
         } finally {
             // close connection
             db.closeConnection(rs, ps, conn);

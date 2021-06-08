@@ -28,7 +28,7 @@
                         </div>
                     </div>
                     <div class="">
-                        <img src="images/map.jpg" width="700px" height="500px">
+                        <img src="${imagePath}${map}">
                     </div>
                 </div>
                 <jsp:include page="right.jsp" />

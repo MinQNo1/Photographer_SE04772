@@ -66,7 +66,6 @@ public class PictureController extends HttpServlet {
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
-     * @throws java.sql.SQLException
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -86,11 +85,10 @@ public class PictureController extends HttpServlet {
             request.setAttribute("galleries", galleries);
             if (pictures.isEmpty()) {
                 request.setAttribute("error", "Gallary not found.");
-                request.getRequestDispatcher("error.jsp").forward(request, response);
             } else {
                 request.setAttribute("pictures", pictures);
-                request.getRequestDispatcher("picture.jsp").forward(request, response);
             }
+            request.getRequestDispatcher("picture.jsp").forward(request, response);
         } catch (Exception ex) {
             request.setAttribute("error", ex.getMessage());
             request.getRequestDispatcher("error.jsp").forward(request, response);

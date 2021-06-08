@@ -30,6 +30,7 @@ h1, h2, h3, h4, h5, h6 {
     -webkit-box-orient: horizontal!important;
     -webkit-box-direction: normal!important;    
     flex-direction: column!important;
+    min-width: calc(100% - 255px);
 }
 
 .left > * {
@@ -378,4 +379,30 @@ h4 > a{
     display: table;
     content: "";
     line-height: 0;
+}
+
+.right{
+    width: 30%;
+}
+
+.share{
+    width: 225px;
+    height: 150px;
+    background-color: #893b3d;
+}
+
+.share div:not(:first-child) {
+    margin: 10px;
+    font-size: 16px;
+}
+
+.sharePage{
+    color: white;
+    padding: 10px;
+    font-size: 20px;
+    background-color: #303030;
+}
+
+.fb, .twitter, google {
+    color: inherit;
 }

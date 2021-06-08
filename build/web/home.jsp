@@ -18,7 +18,7 @@
                         <div class="gallery">
                             <div class="titleImg">
                                 <img src="${imagePath}${setting.titleImage}">
-                                <i class="imageCaption"><p class="sub3">${setting.titleText}</p></i>
+                                <i class="imageCaption"></i><p>${setting.titleText}</p>
                             </div>
                             <table>
                                 <tr>

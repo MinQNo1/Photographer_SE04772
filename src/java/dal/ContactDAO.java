@@ -61,6 +61,7 @@ public class ContactDAO {
                 c.setAbout_me(rs.getString("about_me"));
             }
         } catch (Exception ex) {
+            // throw exception
             Logger.getLogger(ContactDAO.class.getName()).log(Level.SEVERE, null, ex);
             throw ex;
         } finally {

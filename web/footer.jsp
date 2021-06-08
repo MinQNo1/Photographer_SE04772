@@ -29,7 +29,7 @@
 
                     <span class="footer-page-counter-item">8</span>
                 </div>
-                <div id="css_simplesite_com_fallback" class="hide"></div>
+                <div id="css_simplesite_com_fallback" class=""></div>
             </div>
         </div>
     </body>

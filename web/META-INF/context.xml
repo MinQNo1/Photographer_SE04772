@@ -11,4 +11,5 @@ and open the template in the editor.
     <Environment name="username" type="java.lang.String" value="sa"/>
     <Environment name="password" type="java.lang.String" value="123456"/>
     <Environment name="images" type="java.lang.String" value="images/"/>
+    <Environment name="map" type="java.lang.String" value="map.jpg"/>
 </Context>
