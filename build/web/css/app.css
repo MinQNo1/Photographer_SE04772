@@ -1,6 +1,5 @@
 body, html{
     background-color: #722f31;
-    margin: 0;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -30,7 +29,7 @@ h1, h2, h3, h4, h5, h6 {
     -webkit-box-orient: horizontal!important;
     -webkit-box-direction: normal!important;    
     flex-direction: column!important;
-    min-width: calc(100% - 255px);
+    width: 80%;
 }
 
 .left > * {
@@ -65,15 +64,15 @@ table tr td img{
 }
 
 table tr td:first-child{
-    padding-right: 8px;
+    padding-right: 5px;
 }
 
 table tr td:last-child{
-    padding-left: 8px;
+    padding-left: 5px;
 }
 
 table tr td:not(:first-child):not(:last-child){
-    padding: 8px;
+    padding: 5px;
 }
 
 .titleImg img{
@@ -159,9 +158,6 @@ table tr td:not(:first-child):not(:last-child){
     margin-right: 5px;
 }
 
-.imageItem{
-    margin: 30px 10px 30px 10px;
-}
 .map{
     margin-left: 225px;
 }
@@ -382,7 +378,7 @@ h4 > a{
 }
 
 .right{
-    width: 30%;
+    width: 20%;
 }
 
 .share{

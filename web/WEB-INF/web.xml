@@ -32,33 +32,17 @@
         <servlet-name>ContactController</servlet-name>
         <url-pattern>/contact</url-pattern>
     </servlet-mapping>
+    <filter>
+        <filter-name>DoFilter</filter-name>
+        <filter-class>filter.JspFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>DoFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
     <session-config>
         <session-timeout>
             30
         </session-timeout>
     </session-config>
-    <context-param>
-        <param-name>serverName</param-name>
-        <param-value>localhost</param-value>
-    </context-param>
-    <context-param>
-        <param-name>serverPort</param-name>
-        <param-value>1433</param-value>
-    </context-param>
-    <context-param>
-        <param-name>dbName</param-name>
-        <param-value>photographer</param-value>
-    </context-param>
-    <context-param>
-        <param-name>username</param-name>
-        <param-value>root</param-value>
-    </context-param>
-    <context-param>
-        <param-name>password</param-name>
-        <param-value>root</param-value>
-    </context-param>
-    <context-param>
-        <param-name>image</param-name>
-        <param-value>images\</param-value>
-    </context-param>
 </web-app>
