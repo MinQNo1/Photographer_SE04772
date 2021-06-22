@@ -82,7 +82,11 @@ public class ContactController extends HttpServlet {
             request.setAttribute("galleries", galleries);
             request.setAttribute("contact", c);
             request.setAttribute("map", context.map);
+            request.setAttribute("fb", context.fb);
+            request.setAttribute("gg", context.gg);
+            request.setAttribute("tw", context.tw);
             request.getRequestDispatcher("contact.jsp").forward(request, response);
+            
         } catch (Exception ex) {
             request.setAttribute("error", ex.getMessage());
             request.getRequestDispatcher("error.jsp").forward(request, response);

@@ -72,16 +72,48 @@ public class HomeController extends HttpServlet {
             throws ServletException, Exception {
         response.setContentType("text/html;charset=UTF-8");
         try {
-            GalleryDAO dao = new GalleryDAO();
+            GalleryDAO gDao = new GalleryDAO();
             ContactDAO cDao = new ContactDAO();
             SettingDAO settingDAO = new SettingDAO();
             DBContext context = new DBContext();
-            List<Gallery> galleries = dao.getGalleries();
+
+            String page = request.getParameter("page");
+            int indexPage = 1;
+            if (page != null) {
+                try {
+                    indexPage = Integer.parseInt(page);
+                } catch (Exception e) {
+                    indexPage = -1;
+                }
+            }
+
+            request.setAttribute("fb", context.fb);
+            request.setAttribute("gg", context.gg);
+            request.setAttribute("tw", context.tw);
+            //number of item in a page
+            int pageSize = 3;
+            if (indexPage != -1) {
+                //number of items
+                int rowCount = gDao.getTotalGalleries();
+                //maximum of page
+                int maxPage = rowCount / pageSize + (rowCount % pageSize > 0 ? 1 : 0);
+
+                if (indexPage <= maxPage) {
+                    List<Gallery> listGalleries = gDao.getGalleries(indexPage, pageSize);
+                    request.setAttribute("galleries", listGalleries);
+                    request.setAttribute("maxPage", maxPage);
+                    request.setAttribute("pageIndex", indexPage);
+                } else {
+                    request.setAttribute("mess", "Page index is out of range");
+                }
+            } else {
+                request.setAttribute("mess", "Page index must not include character");
+            }
+
             Contact c = cDao.getContact();
             Setting setting = settingDAO.getWebSetting();
             request.setAttribute("imagePath", context.getImagePath());
             request.setAttribute("setting", setting);
-            request.setAttribute("galleries", galleries);
             request.setAttribute("contact", c);
             request.getRequestDispatcher("home.jsp").forward(request, response);
         } catch (Exception ex) {

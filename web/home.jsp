@@ -38,6 +38,16 @@
                                 </tr>
                             </table>
                         </div>
+                        <c:if test="${maxPage<1}">
+                            <h3>Not Found !!</h3>
+                        </c:if>
+                        <c:if test="${maxPage>1}">
+                            <div class="pagesContainer">
+                                <c:forEach begin="1" end="${maxPage}" var="i">
+                                    <a class="pages ${i==pageIndex?"active":""}" href="home?page=${i}">${i}</a>
+                                </c:forEach>
+                            </div>
+                        </c:if>
                         <div class="about">
                             <div class="about_me"><h3>About me</h3></div>
                             <div class="content">

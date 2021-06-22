@@ -73,20 +73,49 @@ public class PictureController extends HttpServlet {
         try {
             DBContext context = new DBContext();
             GalleryDAO gDao = new GalleryDAO();
-            PictureDAO dao = new PictureDAO();
+            PictureDAO pdao = new PictureDAO();
             SettingDAO settingDAO = new SettingDAO();
-            int id = Integer.parseInt(request.getParameter("id"));
-            request.setAttribute("gId", id);
-            Setting setting = settingDAO.getWebSetting();
-            request.setAttribute("setting", setting);
-            request.setAttribute("imagePath", context.getImagePath());
-            List<Gallery> galleries = gDao.getGalleries();
-            List<Picture> pictures = dao.getPicturesById(id);
-            request.setAttribute("galleries", galleries);
-            if (pictures.isEmpty()) {
-                request.setAttribute("error", "Gallary not found.");
+            int id;
+            try {
+                id = Integer.parseInt(request.getParameter("id"));
+                request.setAttribute("id", id);
+            } catch (Exception e) {
+                id = -1;
+            }
+            int pageSize = 8;
+            String txtPage = request.getParameter("txtPage");
+            int indexPage = 1;
+            if (txtPage != null) {
+                try {
+                    indexPage = Integer.parseInt(txtPage);
+                } catch (Exception e) {
+                    indexPage = -1;
+                }
+            }
+            request.setAttribute("fb", context.fb);
+            request.setAttribute("gg", context.gg);
+            request.setAttribute("tw", context.tw);
+            if (indexPage != -1 && id != -1) {
+                Gallery gal = gDao.getGalleryById(id);
+                int rowCount = pdao.totalPictureByGallery(id);
+                int maxPage = (int) Math.ceil((double) rowCount / pageSize);
+
+                if (indexPage <= maxPage) {
+                    List<Picture> list = pdao.pagging(indexPage, pageSize, id);
+                    List<Gallery> galleries = gDao.getGalleries();
+                    request.setAttribute("galleries", galleries);
+                    request.setAttribute("imgs", list);
+                    request.setAttribute("maxPage", maxPage);
+                    request.setAttribute("pageIndex", indexPage);
+                    request.setAttribute("gal", gal);
+                    request.setAttribute("setting", settingDAO.getWebSetting());
+                    request.setAttribute("imagePath", context.getImagePath());
+
+                } else {
+                    request.setAttribute("error", "This page not found");
+                }
             } else {
-                request.setAttribute("pictures", pictures);
+                request.setAttribute("error", "This page not found");
             }
             request.getRequestDispatcher("picture.jsp").forward(request, response);
         } catch (Exception ex) {

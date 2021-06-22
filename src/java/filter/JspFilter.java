@@ -31,7 +31,7 @@ public class JspFilter implements Filter {
         if (req.getRequestURI().endsWith("error.jsp") && (req.getAttribute("errShare") != null || req.getAttribute("errIntro") != null )) {
             res.sendRedirect(req.getContextPath() + "/error.jsp");
         } else if (req.getRequestURI().endsWith(".jsp")) {
-            res.sendRedirect(req.getContextPath() + "/HomeController");
+            res.sendRedirect(req.getContextPath() + "/home");
         } else {
             chain.doFilter(req, res);
         }

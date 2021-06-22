@@ -15,15 +15,18 @@
         <div class="right">
             <div class="share">
                 <div class="sharePage">Share this page</div>
-                <div class="fb">
-                    <a class="text-white" href="#">Share on Facebook</a>
+                <div class="shareContent">
+                    <div class="fb">
+                        <p><img class="shareItems" src="${imagePath}${fb}"><a class="text-white" href="#">Share on Facebook</a></p>
+                    </div>
+                    <div class="twitter">
+                        <p><img class="shareItems" src="${imagePath}${tw}"><a class="text-white" href="#">Share on Twitter</a></p>
+                    </div>
+                    <div class="google">
+                        <p><img class="shareItems" src="${imagePath}${gg}"><a class="text-white" href="#">Share on Google+</a></p>
+                    </div>
                 </div>
-                <div class="twitter">
-                    <a class="text-white" href="#">Share on Twitter</a>
-                </div>
-                <div class="google">
-                    <a class="text-white" href="#">Share on Google+</a>
-                </div>
+
             </div>
         </div>
     </body>

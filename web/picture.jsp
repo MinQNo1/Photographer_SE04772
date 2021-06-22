@@ -22,20 +22,20 @@
                     <div class="left">
                         <div class="titleGallery">
                             <c:forEach items="${galleries}" var="i">
-                                <c:if test="${i.id == gId}">
+                                <c:if test="${i.id == gal.id}">
                                     ${i.name}
                                 </c:if>
                             </c:forEach>
                         </div>
                         <div class="slide">
-                            <c:forEach items="${pictures}" var="i">
+                            <c:forEach items="${imgs}" var="i">
                                 <img class="mySlides" src="${imagePath}${i.name}" alt="Gallery slider images">
                             </c:forEach>
                         </div>
                         <table>
                             <tr>
-                                <c:forEach items="${pictures}" var="i">
-                                    <c:if test="${i.id <= 4}">
+                                <c:forEach items="${imgs}" var="i">
+                                    <c:if test="${i.no <= 4}">
                                         <td>
                                             <div class="bgPicture">
                                                 <img class="imageItem" src="${imagePath}${i.name}" alt="Gallery images" onclick="plusDivs(${i.id} - 1)">
@@ -45,8 +45,8 @@
                                 </c:forEach>
                             </tr>
                             <tr>
-                                <c:forEach items="${pictures}" var="i">
-                                    <c:if test="${i.id > 4}">
+                                <c:forEach items="${imgs}" var="i">
+                                    <c:if test="${i.no > 4}">
                                         <td>
                                             <div class="bgPicture">
                                                 <img class="imageItem" src="${imagePath}${i.name}" alt="Gallery images" onclick="plusDivs(${i.id} - 1)">
@@ -56,6 +56,18 @@
                                 </c:forEach>
                             </tr>
                         </table>
+                        <div class="paging">
+                            <c:if test="${maxPage<1}">
+                                <h3>Not Found !!</h3>
+                            </c:if>
+                            <c:if test="${maxPage>1}">
+                                <div class="pagesContainer">
+                                    <c:forEach begin="1" end="${maxPage}" var="i">
+                                        <a class="pages ${i==pageIndex?"active":""}" href="picture?txtPage=${i}&id=${id}">${i}</a>
+                                    </c:forEach>
+                                </div>
+                            </c:if>
+                        </div>
                     </div>
                 </c:if>
                 <jsp:include page="right.jsp" />

@@ -26,6 +26,16 @@ public class Picture {
     /**
      * Store id.
      */
+    private int no;
+
+    public int getNo() {
+        return no;
+    }
+
+    public void setNo(int no) {
+        this.no = no;
+    }
+    
     private int id;
     /**
      * Store name.

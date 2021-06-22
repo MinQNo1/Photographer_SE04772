@@ -27,7 +27,7 @@
                             Email: ${contact.email}<br>
                         </div>
                     </div>
-                    <div class="">
+                    <div class="map">
                         <img src="${imagePath}${map}">
                     </div>
                 </div>

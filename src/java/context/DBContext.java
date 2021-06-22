@@ -60,6 +60,9 @@ public class DBContext {
     private String password;
     public String image;
     public String map;
+    public String fb;
+    public String gg;
+    public String tw;
     
     InitialContext initial;
     Context context;
@@ -76,6 +79,9 @@ public class DBContext {
             password = context.lookup("password").toString();
             image = context.lookup("images").toString();
             map = context.lookup("map").toString();
+            fb = context.lookup("fb").toString();
+            gg = context.lookup("gg").toString();
+            tw = context.lookup("tw").toString();
         } catch (NamingException ex){
             Logger.getLogger(DBContext.class.getName()).log(Level.SEVERE, null, ex);
         }
