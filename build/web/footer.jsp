@@ -15,22 +15,18 @@
     </head>
     <body>
         <div class="footer">
-            <div class="container">
-                <div class="footer-page-counter">
-                    <span class="footer-page-counter-item">1</span>
-
-                    <span class="footer-page-counter-item">0</span>
-
-                    <span class="footer-page-counter-item">8</span>
-
-                    <span class="footer-page-counter-item">0</span>
-
-                    <span class="footer-page-counter-item">4</span>
-
-                    <span class="footer-page-counter-item">8</span>
+            <div class="footer-container content-footer">
+                <div class="created"><a href="#">Created with SimpleSite</a></div>
+                <div class="number">
+                    <ul>
+                        <li>1</li>
+                        <li>2</li>
+                        <li>3</li>
+                        <li>4</li>
+                        <li>5</li>
+                        <li>6</li>
+                    </ul>
                 </div>
-                <div id="css_simplesite_com_fallback" class=""></div>
             </div>
-        </div>
     </body>
 </html>

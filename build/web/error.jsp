@@ -19,7 +19,7 @@
 
         <div class="content-wrap">
             <div class="left-area">
-                <h1>Something is wrong !!!</h1>
+                <h1>An error occurred, please try again later !!!</h1>
             </div>
             <div class="right-area">
                 <%@include file="right.jsp"%>

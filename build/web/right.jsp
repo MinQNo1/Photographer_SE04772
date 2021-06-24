@@ -15,17 +15,17 @@
         <div class="right-wrapper">
             <div class="right-title">Share this page</div>
             <div class="right-social">
-                <div>
+                <div class="mt-3">
                     <img class="icon" src="${imagePath}${fb}" >
-                    <a href="#" class="right-social social-link ">Share on Facebook</a>
+                    <a href="#" class="social-link ">Share on Facebook</a>
                 </div>
-                <div>
+                <div class="mt-3">
                     <img class="icon" src="${imagePath}${tw}" >
-                    <a href="#" class="right-social social-link ">Share on Twitter</a>
+                    <a href="#" class="social-link ">Share on Twitter</a>
                 </div>
-                <div>
+                <div class="mt-3">
                     <img class="icon" src="${imagePath}${gg}" >
-                    <a href="#" class="right-social social-link ">Share on Google+</a>
+                    <a href="#" class="social-link ">Share on Google+</a>
                 </div>
             </div>
         </div>

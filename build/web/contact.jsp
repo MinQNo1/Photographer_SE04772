@@ -19,17 +19,9 @@
                     <div class="contact">Address :   ${contact.address}</div>
                     <div class="contact" >City :   ${contact.city}</div>                   
                     <div class="contact">Country :   ${contact.country}</div>
-                    <br>
-                    <br>
-                    <div class="contact">Tel :   ${contact.tel}</div>
-                    <br>
-
-                    <div class="contact">Email :   ${contact.email}</div>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <img src="${imagePath}${map}">
+                    <div class="contact mt-25">Tel :   ${contact.tel}</div>
+                    <div class="contact mt-15">Email :   ${contact.email}</div>
+                    <img class="mt-70" src="${imagePath}${map}" alt="map">
                 </div>
                 <div class="right-area">
                     <%@include file="right.jsp"%>
