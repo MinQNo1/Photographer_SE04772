@@ -14,7 +14,7 @@ function plusDivs(n) {
 
 function showDivs(n) {
     var i;
-    var x = document.getElementsByClassName("mySlides");
+    var x = document.getElementsByClassName("gallery-big-image");
     if (n > x.length) {
         slideIndex = 1;
     }

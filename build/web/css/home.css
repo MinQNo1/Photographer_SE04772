@@ -1,26 +1,47 @@
-/*
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
-*/
-/* 
-    Created on : May 20, 2021, 2:59:48 PM
-    Author     : QuyenNV
-*/
-
-table a {
-    text-decoration: white;
+.intro-description{
+    margin: 8px 0px;
+    color: white;
+    font-family: sans-serif;
+    font-style: italic;
 }
 
-.viewGallery {
-    text-decoration: underline;
-    font-size: 22px;
+.description{
+    color: white;
+    font-family: sans-serif;
+    font-size: 17px;
 }
 
-.description {
-    font-family: 'Open Sans',Helvetica,Arial,sans-serif;
-    font-size: 16px;
+.gallery-collection{
+    margin-top: 80px;
+    margin-bottom: 20px;
+    width: 750px;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
 }
 
+.gallery-collection-item{
+    width: 220px;
+    margin-bottom: 20px;
+}
 
+.intro-image img{
+    width: 750px;
+}
 
+.gallery-collection-item:not(:nth-child(3n)){
+    margin-right: 45px;
+}
+
+.gallery-cover img{
+    width: 220px;
+}
+
+.gallery-title{
+    margin: 10px 0;
+}
+.gallery-title a{
+    color: white;
+    font-size: 24px;
+    font-family: serif;
+}

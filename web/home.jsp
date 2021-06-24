@@ -10,55 +10,66 @@
         <title>Homepage</title>
     </head>
     <body>
-        <jsp:include page="header.jsp" />
-        <div class="container-fluid content-wrapper">
-            <div class="container">
-                <div class="content">
-                    <div class="left">
-                        <div class="gallery">
-                            <div class="titleImg">
-                                <img src="${imagePath}${setting.titleImage}">
-                                <i class="imageCaption"></i><p>${setting.titleText}</p>
-                            </div>
-                            <table>
-                                <tr>
-                                    <c:forEach items="${galleries}" var="i">
-                                        <td><a><img src="${imagePath}${i.feturedPicture}"><a></td>
-                                    </c:forEach> 
-                                </tr>
-                                <tr>
-                                    <c:forEach items="${galleries}" var="i">
-                                        <td><h4><a class="viewGallery" href="picture?id=${i.id}">View ${i.name}</a></h4></td>
-                                    </c:forEach> 
-                                </tr>
-                                <tr>
-                                    <c:forEach items="${galleries}" var="i">
-                                        <td><div class="description"><p>${i.description}</p></div></td>
-                                    </c:forEach> 
-                                </tr>
-                            </table>
-                        </div>
-                        <c:if test="${maxPage<1}">
-                            <h3>Not Found !!</h3>
-                        </c:if>
-                        <c:if test="${maxPage>1}">
-                            <div class="pagesContainer">
-                                <c:forEach begin="1" end="${maxPage}" var="i">
-                                    <a class="pages ${i==pageIndex?"active":""}" href="home?page=${i}">${i}</a>
-                                </c:forEach>
-                            </div>
-                        </c:if>
-                        <div class="about">
-                            <div class="about_me"><h3>About me</h3></div>
-                            <div class="content">
-                                <div class="aboutText">${contact.about_me}</div>
-                            </div>
-                        </div>
-                    </div>
-                    <jsp:include page="right.jsp" />
+        <jsp:include page="header.jsp"/>
+
+        <div class="content-wrap">
+            <div class="left-area">
+                <!--preIntro-->
+                <div class="intro">
+                    <div class="intro-image"><img src="${imagePath}${setting.titleImage}"></div>
+                    <div class="intro-description">${setting.titleText}</div>
                 </div>
+                <div class="gallery-collection">
+                    <c:forEach var="i" items="${galleries}">
+                        <div class="gallery-collection-item">
+                            <div class="gallery-cover"><img src="${imagePath}${i.feturedPicture}"></div>
+                            <div class="gallery-title"><a href="picture?id=${i.id}">View ${i.name}</a></div>
+                            <div class="description">${i.description}</div>
+                        </div>
+                    </c:forEach>
+                </div>
+                <!--End show gallarys-->
+
+                <!--Paging-->
+                <div class="paging">
+
+                    <c:if test="${maxPage<1}">
+                        <h3>Not Found !!</h3>
+                    </c:if>
+
+                    <c:if test="${maxPage>1}">
+                        <c:forEach begin="1" end="${maxPage}" var="i">
+                            <a class="${i==pageIndex?"active":""}" href="home?page=${i}">${i}</a>
+                        </c:forEach>
+                    </c:if>
+                    <div class="about-me">
+                        <div class="large-title">${about.title}</div>
+                        <div class="description">${about.description}</div>
+                    </div>
+
+
+
+                </div>
+                <!--End paging-->
+
+                <!--Intro about me-->
+                <c:if test="${intro eq null}">
+                    <h2>${errIntro}</h2>
+                </c:if>
+                <div class="about-me">
+                    <div class="large-title">${messIntro}</div>
+
+                    <div class="large-title">About Me</div>
+                    <div class="description">${contact.about_me}</div>
+                </div>
+                <!--End Intro about me-->
+            </div>
+
+            <div class="right-area">
+                <%@include file="right.jsp"%>
             </div>
         </div>
-        <jsp:include page="footer.jsp" />
+
+        <jsp:include page="footer.jsp"/>
     </body>
 </html>

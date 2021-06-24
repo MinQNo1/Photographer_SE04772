@@ -22,7 +22,7 @@ package model;
  * . setDescription.
  * </pre>
  *
- * @author AM
+ * @author QUYENNV
  * @version 1.0
  */
 public class Gallery {

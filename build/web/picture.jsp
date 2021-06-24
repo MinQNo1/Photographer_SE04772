@@ -6,74 +6,45 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link href="css/app.css" rel="stylesheet" type="text/css"/>
-        <link href="css/picture.css" rel="stylesheet" type="text/css"/>
+        <link href="css/gallery.css" rel="stylesheet" type="text/css"/>
         <title>Gallery</title>
     </head>
     <body>
-        <jsp:include page="header.jsp" />
-        <div class="container">
-            <div class="content">
-                <c:if test="${error != null}">
-                    <div class="left">
-                        <span>${error}</span>
+        <div class="wrapper">  
+            <jsp:include page="header.jsp"/>
+            <div class="content-wrap">
+                <div class="left-area">
+                    <div class="name">${gal.name}</div>
+                    <div class="slides">
+                        <h2>${message}</h2>
+                        <c:forEach var="i" items="${imgs}">
+                            <img class="gallery-big-image" src="${imagePath}${i.name}" >
+                        </c:forEach>
                     </div>
-                </c:if>
-                <c:if test="${error == null}">
-                    <div class="left">
-                        <div class="titleGallery">
-                            <c:forEach items="${galleries}" var="i">
-                                <c:if test="${i.id == gal.id}">
-                                    ${i.name}
-                                </c:if>
-                            </c:forEach>
-                        </div>
-                        <div class="slide">
-                            <c:forEach items="${imgs}" var="i">
-                                <img class="mySlides" src="${imagePath}${i.name}" alt="Gallery slider images">
-                            </c:forEach>
-                        </div>
-                        <table>
-                            <tr>
-                                <c:forEach items="${imgs}" var="i">
-                                    <c:if test="${i.no <= 4}">
-                                        <td>
-                                            <div class="bgPicture">
-                                                <img class="imageItem" src="${imagePath}${i.name}" alt="Gallery images" onclick="plusDivs(${i.id} - 1)">
-                                            </div>
-                                        </td>
-                                    </c:if>
-                                </c:forEach>
-                            </tr>
-                            <tr>
-                                <c:forEach items="${imgs}" var="i">
-                                    <c:if test="${i.no > 4}">
-                                        <td>
-                                            <div class="bgPicture">
-                                                <img class="imageItem" src="${imagePath}${i.name}" alt="Gallery images" onclick="plusDivs(${i.id} - 1)">
-                                            </div>
-                                        </td>
-                                    </c:if>
-                                </c:forEach>
-                            </tr>
-                        </table>
-                        <div class="paging">
-                            <c:if test="${maxPage<1}">
-                                <h3>Not Found !!</h3>
-                            </c:if>
-                            <c:if test="${maxPage>1}">
-                                <div class="pagesContainer">
-                                    <c:forEach begin="1" end="${maxPage}" var="i">
-                                        <a class="pages ${i==pageIndex?"active":""}" href="picture?txtPage=${i}&id=${id}">${i}</a>
-                                    </c:forEach>
-                                </div>
-                            </c:if>
-                        </div>
+                    <div class="gallery-list-image">
+                        <c:forEach var="i" items="${imgs}" varStatus="loop" >
+                            <div class="gallery-image" >
+                                <img id="choiceImage" src="${imagePath}${i.name}" onclick="plusDivs(${i.id} - 1)">
+                            </div>
+                        </c:forEach>
                     </div>
-                </c:if>
-                <jsp:include page="right.jsp" />
+                    <div class="paging">
+                        <c:if test="${maxPage<1}">
+                            <h3>Not Found !!</h3>
+                        </c:if>
+                        <c:if test="${maxPage>1}">
+                            <c:forEach begin="1" end="${maxPage}" var="i">
+                                <a class="${i==pageIndex?"active":""}" href="picture?txtPage=${i}&id=${id}">${i}</a>
+                            </c:forEach>
+                        </c:if>
+                    </div>
+                </div>
+                <div class="right-area">
+                    <jsp:include page="right.jsp"/>
+                </div>
             </div>
+            <jsp:include page="footer.jsp"/>
         </div>
-        <jsp:include page="footer.jsp" />
     </body>
     <script src="js/gallery.js"></script>
 </html>

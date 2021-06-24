@@ -12,21 +12,21 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <div class="right">
-            <div class="share">
-                <div class="sharePage">Share this page</div>
-                <div class="shareContent">
-                    <div class="fb">
-                        <p><img class="shareItems" src="${imagePath}${fb}"><a class="text-white" href="#">Share on Facebook</a></p>
-                    </div>
-                    <div class="twitter">
-                        <p><img class="shareItems" src="${imagePath}${tw}"><a class="text-white" href="#">Share on Twitter</a></p>
-                    </div>
-                    <div class="google">
-                        <p><img class="shareItems" src="${imagePath}${gg}"><a class="text-white" href="#">Share on Google+</a></p>
-                    </div>
+        <div class="right-wrapper">
+            <div class="right-title">Share this page</div>
+            <div class="right-social">
+                <div>
+                    <img class="icon" src="${imagePath}${fb}" >
+                    <a href="#" class="right-social social-link ">Share on Facebook</a>
                 </div>
-
+                <div>
+                    <img class="icon" src="${imagePath}${tw}" >
+                    <a href="#" class="right-social social-link ">Share on Twitter</a>
+                </div>
+                <div>
+                    <img class="icon" src="${imagePath}${gg}" >
+                    <a href="#" class="right-social social-link ">Share on Google+</a>
+                </div>
             </div>
         </div>
     </body>

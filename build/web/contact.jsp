@@ -10,30 +10,34 @@
         <title>Contact</title>
     </head>
     <body>
-        <jsp:include page="header.jsp" />
-        <div class="container">
-            <div class="content">
-                <div class="left">
-                    <div class="">
-                        <div class="titleContact">
-                            <p>Contact</p><br>
-                            PHOTOGRAPHER<br>
-                        </div>
-                        <div class="detailContact">
-                            Address: ${contact.address}<br>
-                            City: ${contact.city}<br>
-                            Country: ${contact.country}<br><br>
-                            Tel: ${contact.tel}<br>
-                            Email: ${contact.email}<br>
-                        </div>
-                    </div>
-                    <div class="map">
-                        <img src="${imagePath}${map}">
-                    </div>
+        <div class="wrapper">
+            <%@include file="header.jsp" %>
+            <div class="content-wrap">
+                <div class="left-area">
+                    <div class="large-title">Contact</div>
+                    <div class="contact-title">Photographer</div>
+                    <div class="contact">Address :   ${contact.address}</div>
+                    <div class="contact" >City :   ${contact.city}</div>                   
+                    <div class="contact">Country :   ${contact.country}</div>
+                    <br>
+                    <br>
+                    <div class="contact">Tel :   ${contact.tel}</div>
+                    <br>
+
+                    <div class="contact">Email :   ${contact.email}</div>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <img src="${imagePath}${map}">
                 </div>
-                <jsp:include page="right.jsp" />
+                <div class="right-area">
+                    <%@include file="right.jsp"%>
+                </div>
             </div>
-        </div>
-        <jsp:include page="footer.jsp" />
+            <footer>
+                <%@include file="footer.jsp"%>
+            </footer>
+        </div>  
     </body>
 </html>

@@ -10,8 +10,6 @@ import dal.ContactDAO;
 import dal.GalleryDAO;
 import dal.SettingDAO;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.sql.SQLException;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -86,7 +84,7 @@ public class HomeController extends HttpServlet {
                     indexPage = -1;
                 }
             }
-
+            request.setAttribute("clicked", "home");
             request.setAttribute("fb", context.fb);
             request.setAttribute("gg", context.gg);
             request.setAttribute("tw", context.tw);
@@ -96,7 +94,7 @@ public class HomeController extends HttpServlet {
                 //number of items
                 int rowCount = gDao.getTotalGalleries();
                 //maximum of page
-                int maxPage = rowCount / pageSize + (rowCount % pageSize > 0 ? 1 : 0);
+                int maxPage = (int) Math.ceil(rowCount / pageSize);
 
                 if (indexPage <= maxPage) {
                     List<Gallery> listGalleries = gDao.getGalleries(indexPage, pageSize);

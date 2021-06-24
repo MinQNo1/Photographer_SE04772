@@ -15,12 +15,16 @@
         <title>JSP Page</title>
     </head>
     <body>
-         <jsp:include page="header.jsp" />
-        <div class="container-fluid content-wrapper">
-            <div class="container">
-                <div class="error"><h3>${error}</h3></div>
+        <jsp:include page="header.jsp"/>
+
+        <div class="content-wrap">
+            <div class="left-area">
+                <h1>Something is wrong !!!</h1>
+            </div>
+            <div class="right-area">
+                <%@include file="right.jsp"%>
             </div>
         </div>
-        <jsp:include page="footer.jsp" />
+        <jsp:include page="footer.jsp"/>
     </body>
 </html>

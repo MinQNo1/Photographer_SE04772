@@ -14,28 +14,26 @@
         <title>Header</title>
     </head>
     <body>
-        <div class="header">
-            <div class="link">
-                <div class="container">
-                    <a href="home">My font page</a>
-                    <c:forEach items="${galleries}" var="i">
-                        <a href="picture?id=${i.getId()}">${i.getName()}</a>
-                    </c:forEach>
-                    <a href="contact">Contact</a>
+        <div class="header-wrap">
+            <div class="h-nav">
+                <div class="h-nav-container">
+                    <ul class="h-nav-menu">
+                        <li><a class="${clicked=="home"?"onClick":""}" href="home">My front page</a></li>    
+                        <c:forEach var="i" items="${galleries}">
+                            <li>
+                                <a class="${id==i.id?"onClick":""}" href="picture?id=${i.id}">${i.name}</a>
+                            </li>
+                        </c:forEach>
+                        <li><a class="${clicked=="contact"?"onClick":""}" href="contact">Contact</a></li>         
+                    </ul>
                 </div>
             </div>
-            <div class="title-wrapper">
-                <div class="title-inner">
-                    <a class="logo" href="#">
-                        <img src="${imagePath}${setting.src}"></a>
-                    <div class="title ">
-                        <a class="title title-link" href="#">
-                            ${setting.title}
-                        </a> 
-                    </div>
-                    <!--</div>-->
-                    <div class="subtitle">
-                        ${setting.subTitle}
+            <div class="banner">
+                <div class="banner-container">
+                    <div class="banner-logo"><img src="${imagePath}${setting.src}"></div>
+                    <div class="banner-text">
+                        <div class="banner-text-large">Photographer</div>
+                        <div class="banner-text-medium">Welcome to this website</div>
                     </div>
                 </div>
             </div>

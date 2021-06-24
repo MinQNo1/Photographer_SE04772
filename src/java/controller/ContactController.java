@@ -81,6 +81,7 @@ public class ContactController extends HttpServlet {
             request.setAttribute("setting", setting);
             request.setAttribute("galleries", galleries);
             request.setAttribute("contact", c);
+            request.setAttribute("clicked", "contact");
             request.setAttribute("map", context.map);
             request.setAttribute("fb", context.fb);
             request.setAttribute("gg", context.gg);
