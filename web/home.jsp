@@ -20,7 +20,7 @@
                     <div class="intro-description">${setting.titleText}</div>
                 </div>
                 <div class="gallery-collection">
-                    <c:forEach var="i" items="${galleries}">
+                    <c:forEach var="i" items="${top3}">
                         <div class="gallery-collection-item">
                             <div class="gallery-cover"><img src="${imagePath}${i.feturedPicture}"></div>
                             <div class="gallery-title"><a href="picture?id=${i.id}">View ${i.name}</a></div>

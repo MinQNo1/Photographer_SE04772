@@ -74,9 +74,10 @@ public class HomeController extends HttpServlet {
             ContactDAO cDao = new ContactDAO();
             SettingDAO settingDAO = new SettingDAO();
             DBContext context = new DBContext();
-
             String page = request.getParameter("page");
             int indexPage = 1;
+            
+            //Check if request page is number
             if (page != null) {
                 try {
                     indexPage = Integer.parseInt(page);
@@ -84,21 +85,15 @@ public class HomeController extends HttpServlet {
                     indexPage = -1;
                 }
             }
-            request.setAttribute("clicked", "home");
-            request.setAttribute("fb", context.fb);
-            request.setAttribute("gg", context.gg);
-            request.setAttribute("tw", context.tw);
-            //number of item in a page
             int pageSize = 3;
+            //check if requested page is valid
             if (indexPage != -1) {
-                //number of items
                 int rowCount = gDao.getTotalGalleries();
-                //maximum of page
                 int maxPage = (int) Math.ceil(rowCount / pageSize);
 
                 if (indexPage <= maxPage) {
                     List<Gallery> listGalleries = gDao.getGalleries(indexPage, pageSize);
-                    request.setAttribute("galleries", listGalleries);
+                    request.setAttribute("top3", listGalleries);
                     request.setAttribute("maxPage", maxPage);
                     request.setAttribute("pageIndex", indexPage);
                 } else {
@@ -108,16 +103,18 @@ public class HomeController extends HttpServlet {
                 request.setAttribute("mess", "Page index must not include character");
             }
 
-            Contact c = cDao.getContact();
+            request.setAttribute("clicked", "home");
+            request.setAttribute("fb", context.fb);
+            request.setAttribute("gg", context.gg);
+            request.setAttribute("tw", context.tw);
+            
             Setting setting = settingDAO.getWebSetting();
             request.setAttribute("imagePath", context.getImagePath());
             request.setAttribute("setting", setting);
-            request.setAttribute("contact", c);
             request.getRequestDispatcher("home.jsp").forward(request, response);
         } catch (Exception ex) {
             request.setAttribute("error", ex.getMessage());
             request.getRequestDispatcher("error.jsp").forward(request, response);
-            Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

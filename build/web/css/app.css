@@ -128,7 +128,7 @@ body{
 
 }
 
-.active{
+.clicked{
     color: blue !important;
     text-decoration: none;
     pointer-events: none;

@@ -28,7 +28,7 @@ public class JspFilter implements Filter {
         HttpServletRequest req = (HttpServletRequest) request;
         HttpServletResponse res = (HttpServletResponse) response;        
         
-        if (req.getRequestURI().endsWith("error.jsp") && (req.getAttribute("errShare") != null || req.getAttribute("errIntro") != null )) {
+        if (req.getRequestURI().endsWith("error.jsp")) {
             res.sendRedirect(req.getContextPath() + "/error.jsp");
         } else if (req.getRequestURI().endsWith(".jsp")) {
             res.sendRedirect(req.getContextPath() + "/home");

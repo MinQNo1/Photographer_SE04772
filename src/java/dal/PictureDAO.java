@@ -47,12 +47,11 @@ public class PictureDAO {
         ResultSet rs = null;
         List<Picture> list = new ArrayList<>();
         try {
-            String sql = "SELECT p.id,p.picture FROM Gallery g INNER JOIN Gallery_Picture gp ON g.id = gp.galleryId INNER JOIN Picture p ON gp.pictureId = p.id and g.id = ?";
-            //open connecion
+            String sql = "SELECT p.id,p.picture FROM Gallery g INNER JOIN Gallery_Picture gp "
+                    + "ON g.id = gp.galleryId INNER JOIN Picture p ON gp.pictureId = p.id and g.id = ?";
             conn = db.getConnection();
             ps = conn.prepareStatement(sql);
             ps.setInt(1, id);
-            // get result set
             rs = ps.executeQuery();
             while (rs.next()) {
                 Picture p = new Picture();
@@ -61,11 +60,8 @@ public class PictureDAO {
                 list.add(p);
             }
         }catch(Exception ex){
-            // throw exception
-            Logger.getLogger(PictureDAO.class.getName()).log(Level.SEVERE, null, ex);
             throw ex;
         } finally {
-            //close connection
             db.closeConnection(rs, ps, conn);
         }
         return list;

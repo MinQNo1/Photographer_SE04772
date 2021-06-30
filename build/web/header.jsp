@@ -18,13 +18,13 @@
             <div class="h-nav">
                 <div class="h-nav-container">
                     <ul class="h-nav-menu">
-                        <li><a class="${clicked=="home"?"onClick":""}" href="home">My front page</a></li>    
-                        <c:forEach var="i" items="${galleries}">
+                        <li><a class="${clicked=="home"?"clicked":""}" href="home">My front page</a></li>    
+                        <c:forEach var="i" items="${top3}">
                             <li>
-                                <a class="${id==i.id?"onClick":""}" href="picture?id=${i.id}">${i.name}</a>
+                                <a class="${id==i.id?"clicked":""}" href="picture?id=${i.id}">${i.name}</a>
                             </li>
                         </c:forEach>
-                        <li><a class="${clicked=="contact"?"onClick":""}" href="contact">Contact</a></li>         
+                        <li><a class="${clicked=="contact"?"clicked":""}" href="contact">Contact</a></li>         
                     </ul>
                 </div>
             </div>

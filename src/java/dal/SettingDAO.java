@@ -28,10 +28,8 @@ public class SettingDAO {
         Setting setting = new Setting();
         try {
             String sql = "SELECT * FROM setting";
-            //open connecion
             conn = db.getConnection();
             ps = conn.prepareStatement(sql);
-            // get result set
             rs = ps.executeQuery();
             while (rs.next()) {
                 setting.setSrc(rs.getString("src"));
@@ -42,11 +40,8 @@ public class SettingDAO {
                 setting.setTitleText(rs.getString("title_text"));
             }
         }catch(Exception ex){
-            // throw exception
-            Logger.getLogger(SettingDAO.class.getName()).log(Level.SEVERE, null, ex);
             throw ex;
         } finally {
-            //close connection
             db.closeConnection(rs, ps, conn);
         }
         return setting;

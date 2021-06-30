@@ -74,24 +74,29 @@ public class ContactController extends HttpServlet {
             GalleryDAO gDao = new GalleryDAO();
             ContactDAO dao = new ContactDAO();
             SettingDAO settingDAO = new SettingDAO();
+            
             Contact c = dao.getContact();
-            List<Gallery> galleries = gDao.getGalleries();
-            Setting setting = settingDAO.getWebSetting();
-            request.setAttribute("imagePath", context.getImagePath());
-            request.setAttribute("setting", setting);
-            request.setAttribute("galleries", galleries);
             request.setAttribute("contact", c);
-            request.setAttribute("clicked", "contact");
             request.setAttribute("map", context.map);
+            
+            List<Gallery> galleries = gDao.getTop3Galleries();
+            request.setAttribute("top3", galleries);
+            
+            Setting setting = settingDAO.getWebSetting();
+            request.setAttribute("setting", setting);
+            request.setAttribute("imagePath", context.getImagePath());
+            
+            request.setAttribute("clicked", "contact");
+
             request.setAttribute("fb", context.fb);
             request.setAttribute("gg", context.gg);
             request.setAttribute("tw", context.tw);
+            
             request.getRequestDispatcher("contact.jsp").forward(request, response);
             
         } catch (Exception ex) {
             request.setAttribute("error", ex.getMessage());
             request.getRequestDispatcher("error.jsp").forward(request, response);
-            Logger.getLogger(ContactController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

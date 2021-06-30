@@ -10,8 +10,6 @@ import dal.GalleryDAO;
 import dal.PictureDAO;
 import dal.SettingDAO;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.sql.SQLException;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -22,7 +20,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.Gallery;
 import model.Picture;
-import model.Setting;
 
 /**
  * PictureController<br>
@@ -85,6 +82,7 @@ public class PictureController extends HttpServlet {
             int pageSize = 8;
             String txtPage = request.getParameter("txtPage");
             int indexPage = 1;
+            //check requested page is integer
             if (txtPage != null) {
                 try {
                     indexPage = Integer.parseInt(txtPage);
@@ -92,19 +90,17 @@ public class PictureController extends HttpServlet {
                     indexPage = -1;
                 }
             }
-            request.setAttribute("fb", context.fb);
-            request.setAttribute("gg", context.gg);
-            request.setAttribute("tw", context.tw);
+            //gallary id and requested page are valid
             if (indexPage != -1 && id != -1) {
                 Gallery gal = gDao.getGalleryById(id);
                 int rowCount = pdao.totalPictureByGallery(id);
                 int maxPage = (int) Math.ceil((double) rowCount / pageSize);
-
+                //check if requested page small than total page
                 if (indexPage <= maxPage) {
                     List<Picture> list = pdao.pagging(indexPage, pageSize, id);
-                    List<Gallery> galleries = gDao.getGalleries();
-                    request.setAttribute("galleries", galleries);
                     request.setAttribute("imgs", list);
+                    List<Gallery> galleries = gDao.getTop3Galleries();
+                    request.setAttribute("top3", galleries);
                     request.setAttribute("maxPage", maxPage);
                     request.setAttribute("pageIndex", indexPage);
                     request.setAttribute("gal", gal);
@@ -117,11 +113,13 @@ public class PictureController extends HttpServlet {
             } else {
                 request.setAttribute("error", "This page not found");
             }
+            request.setAttribute("fb", context.fb);
+            request.setAttribute("gg", context.gg);
+            request.setAttribute("tw", context.tw);
             request.getRequestDispatcher("picture.jsp").forward(request, response);
         } catch (Exception ex) {
             request.setAttribute("error", ex.getMessage());
             request.getRequestDispatcher("error.jsp").forward(request, response);
-            Logger.getLogger(PictureController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

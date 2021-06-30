@@ -67,7 +67,7 @@ public class DBContext {
     InitialContext initial;
     Context context;
 
-    public DBContext() {
+    public DBContext() throws Exception {
         try {
             initial = new InitialContext();
             Object obj = initial.lookup("java:comp/env");
@@ -82,8 +82,8 @@ public class DBContext {
             fb = context.lookup("fb").toString();
             gg = context.lookup("gg").toString();
             tw = context.lookup("tw").toString();
-        } catch (NamingException ex){
-            Logger.getLogger(DBContext.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (Exception ex){
+            throw ex;
         }
     }
     

@@ -25,7 +25,7 @@ import model.Contact;
  *
  * </pre>
  *
- * @author AM
+ * @author QuyenNV
  * @version 1.0
  */
 public class ContactDAO {
@@ -45,11 +45,10 @@ public class ContactDAO {
         Contact c = new Contact();
         try {
             String sql = "SELECT * FROM [Contact] WHERE id = (select MAX(id) from Contact)";
-            //open connection
             conn = db.getConnection();
             ps = conn.prepareStatement(sql);
-            // get result set
             rs = ps.executeQuery();
+            //get system setting result set
             while (rs.next()) {
                 c.setId(rs.getInt("id"));
                 c.setAddress(rs.getString("address"));
@@ -60,11 +59,8 @@ public class ContactDAO {
                 c.setAbout_me(rs.getString("about_me"));
             }
         } catch (Exception ex) {
-            // throw exception
-            Logger.getLogger(ContactDAO.class.getName()).log(Level.SEVERE, null, ex);
             throw ex;
         } finally {
-            //close connection
             db.closeConnection(rs, ps, conn);
         }
         return c;

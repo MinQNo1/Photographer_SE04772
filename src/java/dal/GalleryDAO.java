@@ -47,8 +47,8 @@ public class GalleryDAO {
             conn = db.getConnection();
             ps = conn.prepareStatement(sql);
             ps.setInt(1, id);
-            // get result set
             rs = ps.executeQuery();
+            //add resultset items to result list
             while (rs.next()) {
                 gallery = new Gallery();
                 gallery.setId(rs.getInt("id"));
@@ -57,11 +57,9 @@ public class GalleryDAO {
                 gallery.setDescription(rs.getString("description"));
             }
         } catch (Exception ex) {
-            // throw exception
             Logger.getLogger(GalleryDAO.class.getName()).log(Level.SEVERE, null, ex);
             throw ex;
         } finally {
-            // close connection
             db.closeConnection(rs, ps, conn);
         }
         return gallery;
@@ -76,7 +74,7 @@ public class GalleryDAO {
      * @return a list of Gallery
      * @throws java.sql.SQLException
      */
-    public List<Gallery> getGalleries() throws Exception {
+    public List<Gallery> getTop3Galleries() throws Exception {
         DBContext db = new DBContext();
         Connection conn = null;
         PreparedStatement ps = null;
@@ -84,11 +82,10 @@ public class GalleryDAO {
         List<Gallery> list = new ArrayList<>();
         try {
             String sql = "SELECT top 3 * FROM [photographer].[dbo].[Gallery]";
-            //open connection
             conn = db.getConnection();
             ps = conn.prepareStatement(sql);
-            // get result set
             rs = ps.executeQuery();
+            //add resultset items to result list
             while (rs.next()) {
                 Gallery g = new Gallery();
                 g.setId(rs.getInt("id"));
@@ -98,11 +95,9 @@ public class GalleryDAO {
                 list.add(g);
             }
         } catch (Exception ex) {
-            // throw exception
             Logger.getLogger(GalleryDAO.class.getName()).log(Level.SEVERE, null, ex);
             throw ex;
         } finally {
-            // close connection
             db.closeConnection(rs, ps, conn);
         }
         return list;
@@ -125,6 +120,7 @@ public class GalleryDAO {
             ps.setObject(1, start);
             ps.setObject(2, end);
             rs = ps.executeQuery();
+            //add resultset items to result list
             while (rs.next()) {
                 Gallery g = new Gallery();
                 g.setId(rs.getInt("id"));
@@ -150,20 +146,16 @@ public class GalleryDAO {
         
         try {
             String sql = "SELECT count(*) FROM [photographer].[dbo].[Gallery]";
-            //open connection
             conn = db.getConnection();
             ps = conn.prepareStatement(sql);
-            // get result set
             rs = ps.executeQuery();
+            // get total number of gallery
             while (rs.next()) {
                 count = rs.getInt(1);
             }
         } catch (Exception ex) {
-            // throw exception
-            Logger.getLogger(GalleryDAO.class.getName()).log(Level.SEVERE, null, ex);
             throw ex;
         } finally {
-            // close connection
             db.closeConnection(rs, ps, conn);
         }
         return count;
