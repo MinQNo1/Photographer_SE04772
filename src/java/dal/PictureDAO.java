@@ -75,8 +75,8 @@ public class PictureDAO {
         //get value between start to end
         int start = (pageIndex - 1) * pageSize + 1;
         int end = pageIndex * pageSize;
-        String sql = "select * from (select ROW_NUMBER() over (order by galleryId ASC) as No,\n" +
-"                p.id, p.picture from Gallery g INNER JOIN Gallery_Picture gp ON g.id = gp.galleryId "
+        String sql = "select * from (select ROW_NUMBER() over (order by galleryId ASC) as No, " +
+                "p.id, p.picture from Gallery g INNER JOIN Gallery_Picture gp ON g.id = gp.galleryId "
                 + "INNER JOIN Picture p ON gp.pictureId = p.id and g.id = ?) as x where No between ? and ?";
         try {
             conn = new DBContext().getConnection();

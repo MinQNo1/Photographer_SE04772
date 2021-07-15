@@ -21,9 +21,9 @@
                             <img class="gallery-big-image" src="${imagePath}${i.name}" >
                         </c:forEach>
                     </div>
-                    <div class="gallery-list-image">
+                    <div class="gallery-list-container">
                         <c:forEach var="i" items="${imgs}" varStatus="loop" >
-                            <div class="gallery-image" >
+                            <div class="gallery-item" >
                                 <img id="choiceImage" src="${imagePath}${i.name}" onclick="plusDivs(${i.id} - 1)">
                             </div>
                         </c:forEach>
