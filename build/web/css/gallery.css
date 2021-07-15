@@ -24,7 +24,6 @@
 
 .gallery-item{
     display: flex;
-    position: relative;
     width: 175px;
     height: 175px;
     background-color: white;

@@ -5,12 +5,10 @@
  */
 package dal;
 
-import com.sun.org.apache.bcel.internal.generic.AALOAD;
 import context.DBContext;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -143,7 +141,6 @@ public class GalleryDAO {
         PreparedStatement ps = null;
         ResultSet rs = null;
         int count = 0;
-        
         try {
             String sql = "SELECT count(*) FROM [photographer].[dbo].[Gallery]";
             conn = db.getConnection();
