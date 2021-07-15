@@ -49,9 +49,9 @@ body{
 
 .h-nav-menu a{
     display: block;
-    margin: 0 10px;
+    margin: 0 15px;
     text-decoration: none;
-    color: white;
+    color: #ede8e8;
     font-size: 16px;
     line-height: 40px;
     font-family: sans-serif;
@@ -82,7 +82,7 @@ body{
 }
 
 .banner-text-large{
-    font-size: 50px;
+    font-size: 45px;
     line-height: 45px;
     text-transform: uppercase;
     color: white;
@@ -90,7 +90,7 @@ body{
 }
 
 .banner-text-medium{
-    font-size: 22px;
+    font-size: 21px;
     color: white;
     font-family: serif;
 }
@@ -129,8 +129,8 @@ body{
 }
 
 .clicked{
-    color: #aa4043 !important;
-    text-decoration: underline !important;
+    color: white !important;
+    font-weight: bold;
     pointer-events: none;
 }
 

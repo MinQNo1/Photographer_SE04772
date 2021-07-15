@@ -72,6 +72,7 @@ public class HomeController extends HttpServlet {
         try {
             GalleryDAO gDao = new GalleryDAO();
             ContactDAO cDao = new ContactDAO();
+            Contact contact = cDao.getContact();
             SettingDAO settingDAO = new SettingDAO();
             DBContext context = new DBContext();
             String page = request.getParameter("page");
@@ -107,6 +108,7 @@ public class HomeController extends HttpServlet {
             request.setAttribute("fb", context.fb);
             request.setAttribute("gg", context.gg);
             request.setAttribute("tw", context.tw);
+            request.setAttribute("contact", contact);
             
             Setting setting = settingDAO.getWebSetting();
             request.setAttribute("imagePath", context.getImagePath());
