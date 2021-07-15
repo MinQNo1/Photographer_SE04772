@@ -89,7 +89,7 @@ public class HomeController extends HttpServlet {
             //check if requested page is valid
             if (indexPage != -1) {
                 int rowCount = gDao.getTotalGalleries();
-                int maxPage = (int) Math.ceil(rowCount / pageSize);
+                int maxPage = (int) Math.ceil((double)rowCount / pageSize);
 
                 if (indexPage <= maxPage) {
                     List<Gallery> listGalleries = gDao.getGalleries(indexPage, pageSize);

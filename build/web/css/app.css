@@ -227,6 +227,15 @@ body{
 
 }
 
+.active{
+    text-decoration: underline !important;
+    color: yellow !important;
+}
+
+.paging a{
+    text-decoration: none;
+}
+
 .center{
     width: 950px;
     margin-left: auto;
